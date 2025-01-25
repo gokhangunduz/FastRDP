@@ -1,7 +1,7 @@
 version: "3.4"
 services:
   neko:
-    image: "m1k1o/neko:google-chrome"
+    image: "m1k1o/neko:firefox"
     restart: "unless-stopped"
     shm_size: "2gb"
     ports:
