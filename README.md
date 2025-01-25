@@ -12,18 +12,26 @@ wget -qO- "https://raw.githubusercontent.com/gokhangunduz/FastRDP/refs/heads/mai
 
 This will install Docker, Docker Compose, and fetch the required configuration files to launch the Remote Desktop service effortlessly.
 
+Once the setup is complete, you can access the Remote Desktop environment using the public IP address or the public DNS provided by AWS. Simply enter the following into your browser:
+
+```
+http://<Your-EC2-Public-IP-or-DNS>
+```
+
+Make sure your EC2 instance's Network Security Group is configured correctly to allow the necessary ports for communication.
+
 ## Network Security Group Configuration
 
 Ensure that the following ports are open in your EC2 instance's Network Security Group to allow proper functioning:
 
-- **TCP 8080**: For the application interface.
+- **TCP 80**: For the application interface.
 - **UDP 52000-52100**: For remote desktop communication.
 
 Add these rules to your security group:
 
 | Protocol | Port Range  | Source    |
 | -------- | ----------- | --------- |
-| TCP      | 8080        | 0.0.0.0/0 |
+| TCP      | 80          | 0.0.0.0/0 |
 | UDP      | 52000-52100 | 0.0.0.0/0 |
 
 ## Recommended Specs for Neko
